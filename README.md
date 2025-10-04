@@ -40,8 +40,8 @@ The project is structured following professional Python standards, separating co
 ### Installation
 Clone the repository:
 ```powershell
-git clone [Your-Repo-URL]
-cd cma-cli-tool
+git clone https://github.com/BeastAnniee/crypto_market_analytics_cli
+cd crypto_market_analytics_cli
 ```
 Create a virtual environment (Recommended):
 ```powershell
