@@ -10,10 +10,11 @@ _____
 | Feature | Description |
 | :--- | :--- |
 | **Data Ingestion Pipeline** | Uses the `requests` library to fetch top-tier ticker data from a public API, storing raw output in a structured file system. |
-| **Quantitative Modeling** | Implements numerical methods like the **Least Squares Regression** to predict short-term trends and **Weighted Averages** to evaluate coin growth rate using **NumPy**. |
+| **Advanced Quantitative Modeling** | Implements numerical methods like **Least Squares Regression** for short-term trend prediction and **Linear Regression** using **scikit-learn** to analyze correlations between 7-day and 24-hour changes. |
 | **Data Cleaning** | Uses the **Pandas** library to load raw files, perform necessary data type conversions, and prepare the data for analysis. |
 | **Modular Architecture** | Project logic is split into dedicated modules (`analysis_models`, `data_ingestion`, `visualizer`) for high maintainability and testability. |
-| **Visualization** | Generates insightful **bar charts** using **Matplotlib** to display percentage changes across different timeframes. |
+| **Advanced Visualization** | Generates insightful charts using **Matplotlib** and **Seaborn**: bar charts for percentage changes, scatter plots with regression lines, and trend projection line plots. |
+| **Structured JSON Reports** | Analysis results are saved as structured JSON files with timestamps, enabling historical tracking and data serialization. |
 
 ## Project Architecture
 The project is structured following professional Python standards, separating core responsibilities into distinct modules:

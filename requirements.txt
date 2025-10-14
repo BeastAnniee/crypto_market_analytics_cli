@@ -1,3 +1,5 @@
+seaborn
+scikit-learn
 matplotlib~=3.10.6
 pandas~=2.3.3
 requests~=2.32.5

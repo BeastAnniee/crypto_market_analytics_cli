@@ -68,14 +68,6 @@ def fetch_and_save_tickers():
         return None
 
 
-# --- Additional Ingestion Functions (Example Structure) ---
-
 def fetch_and_save_markets():
-    """
-    Placeholder for fetching and saving market-specific data (from mod_markets.py).
-
-    NOTE: The full logic for user coin selection (from mod_markets.py) should be moved to main.py or a CLI handler,
-    and this function should ideally receive the coin_id as an argument.
-    """
     print("Market fetch logic needs a coin ID. Check main menu flow.")
     return None

@@ -1,36 +1,52 @@
 
 import os
-#import csv
-#import json
-#import numpy as np
+import json
+from datetime import datetime
 
 from src.data_ingestion import ensure_directory_exists
 
 REPORT_OUTPUT_DIR = 'reports/analysis_outputs'
 
 
-def generate_report_file(doc_name, result_message):
+def generate_report_file(doc_name, analysis_results_dict, output_message):
     """
-    Writes the analysis result message to a dedicated report file.
+    Saves the analysis results (dict) to a JSON file and displays the message.
 
     Args:
-        doc_name (str): The name of the input data file.
-        result_message (str): The formatted message containing the analysis results.
+        doc_name (str): The input file name for reference.
+        analysis_results_dict (dict): The Python dictionary with the numerical results.
+        output_message (str): The user-friendly message for the console.
     """
     ensure_directory_exists(REPORT_OUTPUT_DIR)
 
-    # Use the input document name as part of the report name
-    report_filename = f"report_{doc_name.replace('.txt', '').replace('consulta_', '')}.txt"
+    # Prepare the JSON filename (without timestamp to consolidate reports)
+    report_filename = f"analysis_report_{doc_name.replace('.txt', '').replace('consulta_', '')}.json"
     filepath = os.path.join(REPORT_OUTPUT_DIR, report_filename)
 
-    print(f"\n--- Analysis Result ---\n{result_message}")
+    # Add metadata
+    analysis_results_dict['timestamp'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    # Append the new report content
-    with open(filepath, 'a') as report_file:
-        report_file.write(result_message + "\n")
+    # --- Read/Write Logic for Stacking JSON Results ---
+    data = []
 
-    print(f"\nReport updated successfully in: {filepath}")
+    # Attempt to read existing data
+    if os.path.exists(filepath):
+        try:
+            with open(filepath, 'r') as f:
+                data = json.load(f)
+        except json.JSONDecodeError:
+            # Empty or corrupt file, we will overwrite it
+            pass
 
+    # Add the new result
+    data.append(analysis_results_dict)
+
+    # Write the complete array back
+    with open(filepath, 'w') as f:
+        json.dump(data, f, indent=4)  # We use indent=4 for readable formatting
+
+    print(f"\n--- Analysis Result ---\n{output_message}")
+    print(f"Structured results saved successfully to: {filepath}")
 
 def input_validated_int(min_val, max_val, prompt=""):
     """
@@ -51,6 +67,7 @@ def input_validated_int(min_val, max_val, prompt=""):
                 print(f"Invalid input. Please enter a number between {min_val} and {max_val}.")
         except ValueError:
             print("Invalid input. Please enter a whole number.")
+
 
 
 def print_separator(n):

@@ -33,7 +33,7 @@ def handle_analytics():
         print("You must fetch Tickers data first (Menu 1, Option 1) to perform analysis.")
         return
 
-    # 1. Select the data file
+    # 1. Selección de archivo (Lógica sin cambios)
     print("Select the data file to analyze:")
     available_files = [f for f in os.listdir(csv_dir) if f.endswith('.txt')]
     if not available_files:
@@ -46,7 +46,6 @@ def handle_analytics():
     file_selection = utils.input_validated_int(1, len(available_files), "Select a file:") - 1
     selected_filename = available_files[file_selection]
 
-    # 2. Load and Clean Data (Uses Pandas)
     try:
         df = dc.load_data_from_csv(selected_filename)
         if df.empty:
@@ -58,35 +57,57 @@ def handle_analytics():
     # --- Analytics Submenu Loop ---
     while True:
         utils.print_separator(0)
+
+        print("Analysis Submenu:\n")
+        print("--- Basic Models ---\n 1. Predict Future Trend (Min Squares)\n 2. Weighted Average Change\n")
         print(
-            "Analysis Submenu:\n 1. Predict Future Trend (Min Squares)\n 2. Weighted Average Change\n 3. Best Growth Coin\n 4. Return to Main Menu")
-        option = utils.input_validated_int(1, 4, "Select an analysis option:")
+            "--- Advanced Models ---\n 3. Linear Regression (Scikit-learn)\n 4. Volatility and Risk Analysis\n 5. Best Growth Coin\n")
+        print(" 6. Return to Main Menu\n")
+
+        # Validation range updated to [1, 6]
+        option = utils.input_validated_int(1, 6, "Select an analysis option:")
         utils.print_separator(0)
 
-        if option == 4:
+        if option == 6:
             break
 
+        # Initialize variables
         selected_coin = None
-        result = None
+        result_dict = None
+        output_msg = None
 
-        # Get coin name for options 1 and 2
         coin_names = df['name'].tolist()
-        if option in [1, 2]:
+
+        # Determine if we need to select a currency (Options 1, 2, 3, 4)
+        if option in [1, 2, 3, 4]:
             print("Select a coin to analyze:")
             for i, name in enumerate(coin_names):
                 print(f" {i + 1}. {name}")
             coin_selection = utils.input_validated_int(1, len(coin_names), "Select a coin:") - 1
             selected_coin = coin_names[coin_selection]
 
-        # Run analysis model
+        # Model Execution
         if option == 1:
-            result = am.min_squares_prediction(df, selected_coin)
-        elif option == 2:
-            result = am.weighted_average_change(df, selected_coin)
-        elif option == 3:
-            result = am.get_best_growth_coin(df)
+            result_dict, output_msg = am.min_squares_prediction(df, selected_coin)
 
-        utils.generate_report_file(selected_filename, result)
+        elif option == 2:
+            result_dict, output_msg = am.weighted_average_change(df, selected_coin)
+
+        elif option == 3:
+            result_dict, output_msg = am.linear_regression_prediction(df, selected_coin)
+
+        elif option == 4:
+            result_dict, output_msg = am.calculate_volatility(df, selected_coin)
+
+        elif option == 5:
+            # Best Growth Coin no necesita selección de moneda
+            result_dict, output_msg = am.get_best_growth_coin(df)
+
+        # Generate Report (Now use dictionary and message)
+        # Only runs if results are not empty (search failure, etc.)
+        if result_dict and output_msg:
+            utils.generate_report_file(selected_filename, result_dict, output_msg)
+
         utils.print_separator(1)
 
 
@@ -98,11 +119,14 @@ def handle_visualization():
         print("You must fetch Tickers data first (Menu 1, Option 1) to generate graphs.")
         return
 
-    print("Select the data file for visualization:")
+    # --- File Selection Logic ---
     available_files = [f for f in os.listdir(csv_dir) if f.endswith('.txt')]
     if not available_files:
         print("No Tickers files found for visualization.")
         return
+
+    print("Select the data file for visualization:")
+    available_files = [f for f in os.listdir(csv_dir) if f.endswith('.txt')]
 
     for i, file in enumerate(available_files):
         print(f" {i + 1}. {file}")
@@ -119,20 +143,48 @@ def handle_visualization():
         return
 
     filepath = None
-
     utils.print_separator(0)
-    print("Select the change to visualize:")
-    print(" 1. Changes in 7 days\n 2. Changes in 24 hours\n 3. Changes in 1 hour")
-    time_option = utils.input_validated_int(1, 3, "Select an option:")
+    print("Select the type of visualization:")
+    print("--- Basic Charts ---")
+    print(" 1. Bar Chart (Change over time)\n")
+    print("--- Advanced Analysis Charts ---")
+    print(" 2. Regression Scatter Plot (7d Change vs. Price)\n 3. Trend Projection (Line Plot)\n")
 
-    if time_option == 1:
-        filepath = vis.generate_bar_chart(df, 'percent_change_7d', "7 days")
-    elif time_option == 2:
-        filepath = vis.generate_bar_chart(df, 'percent_change_24h', "24 hours")
-    elif time_option == 3:
-        filepath = vis.generate_bar_chart(df, 'percent_change_1h', "1 hour")
+    # New validation range: [1, 3]
+    option = utils.input_validated_int(1, 3, "Select an option:")
 
-    print(f"Visualization saved to: {filepath}")
+    if option == 1:
+        # Submenu for Bar Chart time selection (reusing old logic)
+        print("Select time for Bar Chart: 1. 7 days, 2. 24 hours, 3. 1 hour")
+        time_option = utils.input_validated_int(1, 3, "Elige una opción: ")
+
+        if time_option == 1:
+            filepath = vis.generate_bar_chart(df, 'percent_change_7d', "7 days")
+        elif time_option == 2:
+            filepath = vis.generate_bar_chart(df, 'percent_change_24h', "24 hours")
+        elif time_option == 3:
+            filepath = vis.generate_bar_chart(df, 'percent_change_1h', "1 hour")
+
+    elif option == 2:
+        # Regression Scatter Plot
+        filepath = vis.generate_regression_plot(df)
+
+    elif option == 3:
+        # Trend Projection - CURRENCY SELECTION REQUIRED
+
+        coin_names = df['name'].tolist()
+        print("\nSelect a coin to project its short-term trend:")
+        for i, name in enumerate(coin_names):
+            print(f" {i + 1}. {name}")
+        coin_selection = utils.input_validated_int(1, len(coin_names), "Select a coin:") - 1
+        selected_coin = coin_names[coin_selection]
+
+        filepath = vis.generate_trend_projection_plot(df, selected_coin)
+
+    # Print the save path if a file was generated
+    if filepath:
+        print(f"Visualization saved to: {filepath}")
+
     utils.print_separator(1)
 
 
