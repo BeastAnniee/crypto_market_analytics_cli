@@ -1,0 +1,268 @@
+[
+    {
+        "analysis_type": "Min_Squares_Prediction",
+        "coin_analyzed": "Bitcoin",
+        "slope": -1.0029,
+        "predicted_trend": "Decrease",
+        "timestamp": "2025-10-16 19:48:51"
+    },
+    {
+        "analysis_type": "Min_Squares_Prediction",
+        "coin_analyzed": "Ethereum",
+        "slope": -0.908,
+        "predicted_trend": "Decrease",
+        "timestamp": "2025-10-16 19:48:53"
+    },
+    {
+        "analysis_type": "Min_Squares_Prediction",
+        "coin_analyzed": "Tether",
+        "slope": 0.0103,
+        "predicted_trend": "Increase",
+        "timestamp": "2025-10-16 19:48:56"
+    },
+    {
+        "analysis_type": "Min_Squares_Prediction",
+        "coin_analyzed": "Binance Coin",
+        "slope": -0.8719,
+        "predicted_trend": "Decrease",
+        "timestamp": "2025-10-16 19:48:58"
+    },
+    {
+        "analysis_type": "Min_Squares_Prediction",
+        "coin_analyzed": "XRP",
+        "slope": -1.5334,
+        "predicted_trend": "Decrease",
+        "timestamp": "2025-10-16 19:49:00"
+    },
+    {
+        "analysis_type": "Min_Squares_Prediction",
+        "coin_analyzed": "Solana",
+        "slope": -1.5712,
+        "predicted_trend": "Decrease",
+        "timestamp": "2025-10-16 19:49:04"
+    },
+    {
+        "analysis_type": "Min_Squares_Prediction",
+        "coin_analyzed": "USD Coin",
+        "slope": 0.0057,
+        "predicted_trend": "Increase",
+        "timestamp": "2025-10-16 19:49:07"
+    },
+    {
+        "analysis_type": "Min_Squares_Prediction",
+        "coin_analyzed": "Staked Ether",
+        "slope": -0.9198,
+        "predicted_trend": "Decrease",
+        "timestamp": "2025-10-16 19:49:09"
+    },
+    {
+        "analysis_type": "Min_Squares_Prediction",
+        "coin_analyzed": "TRON",
+        "slope": -0.5433,
+        "predicted_trend": "Decrease",
+        "timestamp": "2025-10-16 19:49:11"
+    },
+    {
+        "analysis_type": "Min_Squares_Prediction",
+        "coin_analyzed": "Dogecoin",
+        "slope": -2.014,
+        "predicted_trend": "Decrease",
+        "timestamp": "2025-10-16 19:49:16"
+    },
+    {
+        "analysis_type": "Weighted Average Change",
+        "coin_analyzed": "Bitcoin",
+        "average_change": -2.575,
+        "timestamp": "2025-10-16 19:49:20"
+    },
+    {
+        "analysis_type": "Weighted Average Change",
+        "coin_analyzed": "Ethereum",
+        "average_change": -2.3633,
+        "timestamp": "2025-10-16 19:49:23"
+    },
+    {
+        "analysis_type": "Weighted Average Change",
+        "coin_analyzed": "Tether",
+        "average_change": -0.1317,
+        "timestamp": "2025-10-16 19:49:25"
+    },
+    {
+        "analysis_type": "Weighted Average Change",
+        "coin_analyzed": "Binance Coin",
+        "average_change": -2.5583,
+        "timestamp": "2025-10-16 19:49:28"
+    },
+    {
+        "analysis_type": "Weighted Average Change",
+        "coin_analyzed": "XRP",
+        "average_change": -3.42,
+        "timestamp": "2025-10-16 19:49:30"
+    },
+    {
+        "analysis_type": "Weighted Average Change",
+        "coin_analyzed": "Solana",
+        "average_change": -4.38,
+        "timestamp": "2025-10-16 19:49:33"
+    },
+    {
+        "analysis_type": "Weighted Average Change",
+        "coin_analyzed": "USD Coin",
+        "average_change": 0.0017,
+        "timestamp": "2025-10-16 19:49:35"
+    },
+    {
+        "analysis_type": "Weighted Average Change",
+        "coin_analyzed": "Staked Ether",
+        "average_change": -2.4267,
+        "timestamp": "2025-10-16 19:49:38"
+    },
+    {
+        "analysis_type": "Weighted Average Change",
+        "coin_analyzed": "TRON",
+        "average_change": -1.3217,
+        "timestamp": "2025-10-16 19:49:41"
+    },
+    {
+        "analysis_type": "Weighted Average Change",
+        "coin_analyzed": "Dogecoin",
+        "average_change": -4.9917,
+        "timestamp": "2025-10-16 19:49:45"
+    },
+    {
+        "model_name": "Linear Regression (7d change vs USD price)",
+        "coin_analyzed": "Bitcoin",
+        "r2_score": 0.0023,
+        "predicted_price_usd": 12011.02,
+        "timestamp": "2025-10-16 19:49:49"
+    },
+    {
+        "model_name": "Linear Regression (7d change vs USD price)",
+        "coin_analyzed": "Ethereum",
+        "r2_score": 0.0023,
+        "predicted_price_usd": 11753.81,
+        "timestamp": "2025-10-16 19:49:52"
+    },
+    {
+        "model_name": "Linear Regression (7d change vs USD price)",
+        "coin_analyzed": "Tether",
+        "r2_score": 0.0023,
+        "predicted_price_usd": 9461.23,
+        "timestamp": "2025-10-16 19:49:53"
+    },
+    {
+        "model_name": "Linear Regression (7d change vs USD price)",
+        "coin_analyzed": "Binance Coin",
+        "r2_score": 0.0023,
+        "predicted_price_usd": 11530.14,
+        "timestamp": "2025-10-16 19:49:56"
+    },
+    {
+        "model_name": "Linear Regression (7d change vs USD price)",
+        "coin_analyzed": "XRP",
+        "r2_score": 0.0023,
+        "predicted_price_usd": 13205.4,
+        "timestamp": "2025-10-16 19:49:57"
+    },
+    {
+        "model_name": "Linear Regression (7d change vs USD price)",
+        "coin_analyzed": "Solana",
+        "r2_score": 0.0023,
+        "predicted_price_usd": 13268.02,
+        "timestamp": "2025-10-16 19:49:59"
+    },
+    {
+        "model_name": "Linear Regression (7d change vs USD price)",
+        "coin_analyzed": "USD Coin",
+        "r2_score": 0.0023,
+        "predicted_price_usd": 9447.81,
+        "timestamp": "2025-10-16 19:50:02"
+    },
+    {
+        "model_name": "Linear Regression (7d change vs USD price)",
+        "coin_analyzed": "Staked Ether",
+        "r2_score": 0.0023,
+        "predicted_price_usd": 11787.36,
+        "timestamp": "2025-10-16 19:50:05"
+    },
+    {
+        "model_name": "Linear Regression (7d change vs USD price)",
+        "coin_analyzed": "TRON",
+        "r2_score": 0.0023,
+        "predicted_price_usd": 10827.83,
+        "timestamp": "2025-10-16 19:50:07"
+    },
+    {
+        "model_name": "Linear Regression (7d change vs USD price)",
+        "coin_analyzed": "Dogecoin",
+        "r2_score": 0.0023,
+        "predicted_price_usd": 14594.36,
+        "timestamp": "2025-10-16 19:50:10"
+    },
+    {
+        "coin": "Bitcoin",
+        "volatility_std": 4.995578044631071,
+        "risk_level": "MEDIUM",
+        "timestamp": "2025-10-16 19:50:15"
+    },
+    {
+        "coin": "Ethereum",
+        "volatility_std": 4.470289575507262,
+        "risk_level": "MEDIUM",
+        "timestamp": "2025-10-16 19:50:18"
+    },
+    {
+        "coin": "Tether",
+        "volatility_std": 0.04642796092394707,
+        "risk_level": "LOW",
+        "timestamp": "2025-10-16 19:50:21"
+    },
+    {
+        "coin": "Binance Coin",
+        "volatility_std": 3.847651520372164,
+        "risk_level": "MEDIUM",
+        "timestamp": "2025-10-16 19:50:23"
+    },
+    {
+        "coin": "XRP",
+        "volatility_std": 7.531653204974323,
+        "risk_level": "HIGH",
+        "timestamp": "2025-10-16 19:50:25"
+    },
+    {
+        "coin": "Solana",
+        "volatility_std": 7.197721861811555,
+        "risk_level": "HIGH",
+        "timestamp": "2025-10-16 19:50:27"
+    },
+    {
+        "coin": "USD Coin",
+        "volatility_std": 0.020548046676563254,
+        "risk_level": "LOW",
+        "timestamp": "2025-10-16 19:50:29"
+    },
+    {
+        "coin": "Staked Ether",
+        "volatility_std": 4.519618961323571,
+        "risk_level": "MEDIUM",
+        "timestamp": "2025-10-16 19:50:31"
+    },
+    {
+        "coin": "TRON",
+        "volatility_std": 2.7226253669737397,
+        "risk_level": "MEDIUM",
+        "timestamp": "2025-10-16 19:50:34"
+    },
+    {
+        "coin": "Dogecoin",
+        "volatility_std": 10.131950563550053,
+        "risk_level": "HIGH",
+        "timestamp": "2025-10-16 19:50:38"
+    },
+    {
+        "analysis_type": "Best Growth Coin",
+        "coin_name": "USD Coin",
+        "weighted_avg": 0.0017,
+        "timestamp": "2025-10-16 19:50:43"
+    }
+]
